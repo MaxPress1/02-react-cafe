@@ -6,23 +6,27 @@ interface VoteStatsProps {
   positiveRate: number;
 }
 
-export default function VoteStats(props: VoteStatsProps) {
+export default function VoteStats({
+  votes: { good, neutral, bad },
+  totalVotes,
+  positiveRate,
+}: VoteStatsProps) {
   return (
     <div className={styles.container}>
       <p className={styles.stat}>
-        Good: <strong>{props.votes.good}</strong>
+        Good: <strong>{good}</strong>
       </p>
       <p className={styles.stat}>
-        Neutral: <strong>{props.votes.neutral}</strong>
+        Neutral: <strong>{neutral}</strong>
       </p>
       <p className={styles.stat}>
-        Bad: <strong>{props.votes.bad}</strong>
+        Bad: <strong>{bad}</strong>
       </p>
       <p className={styles.stat}>
-        Total: <strong>{props.totalVotes}</strong>
+        Total: <strong>{totalVotes}</strong>
       </p>
       <p className={styles.stat}>
-        Positive: <strong>{props.positiveRate}%</strong>
+        Positive: <strong>{positiveRate}%</strong>
       </p>
     </div>
   );
